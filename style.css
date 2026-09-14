@@ -1,0 +1,60 @@
+
+/* Element selector */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Element selector */
+h1 {
+    color: darkgreen;
+    text-align: center;
+}
+
+/* Element selector */
+p {
+    text-align: center;
+    color: #555;
+}
+
+/* Class selector */
+.expense-form {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+/* Class selector */
+.expense-list {
+    background-color: lightblue;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+/* Element selector */
+h2 {
+    color: #333;
+}
+
+/* Element selector */
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* ID selectors */
+#expense-name,
+#amount,
+#category {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
