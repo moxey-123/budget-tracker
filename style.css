@@ -33,7 +33,7 @@ p {
     background-color: lightblue;
     padding: 20px;
     margin: 20px auto;
-    max-width: 500px;
+    max-width: 700px;
     border-radius: 8px;
 }
 
@@ -48,13 +48,98 @@ label {
     margin-top: 15px;
     margin-bottom: 5px;
 }
-
-/* ID selectors */
 #expense-name,
-#amount,
-#category {
+#expense-amount,
+#expense-category {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
 }
 
+/* Expense table */
+.expense-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Table cells */
+.expense-list th,
+.expense-list td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+
+/* Table header */
+.expense-list th {
+    background-color: darkgreen;
+    color: white;
+}
+
+/* Alternating table rows */
+.expense-list tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.expense-form button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Budget video */
+.budget-video {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 700px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.budget-video iframe {
+    max-width: 100%;
+}
+/* How to use section */
+.how-to-use {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 660px;
+    border-radius: 8px;
+}
+
+.how-to-use summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+/* Table row hover effect */
+.expense-list tr:hover {
+    background-color: #d9f2d9;
+}
+/* How to use section */
+.how-to-use {
+    background-color: white;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 660px;
+    border-radius: 8px;
+}
+
+.how-to-use summary {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Table row hover effect */
+.expense-list tr:hover {
+    background-color: #d9f2d9;
+}
+
+/* Input focus effect */
+input:focus,
+select:focus {
+    outline: 2px solid darkgreen;
+}
