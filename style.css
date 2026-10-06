@@ -1,145 +1,235 @@
 
-/* Element selector */
+/* ==============================
+   COLOR PALETTE
+   ============================== */
+
+:root {
+    --primary: #16A34A;
+    --dark-green: #166534;
+    --light-green: #DCFCE7;
+    --background: #F4F7F6;
+    --white: #FFFFFF;
+    --text: #1F2937;
+    --border: #D1D5DB;
+}
+
+
+/* ==============================
+   GENERAL PAGE STYLING
+   ============================== */
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--background);
+    color: var(--text);
     margin: 0;
     padding: 30px;
 }
 
-/* Element selector */
-h1 {
-    color: darkgreen;
-    text-align: center;
+
+/* ==============================
+   PAGE HEADING
+   ============================== */
+
+body > img {
+    display: block;
+    margin: 0 auto 10px;
 }
 
-/* Element selector */
-p {
-    text-align: center;
-    color: #555;
-}
-
-/* Class selector */
-.expense-form {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 500px;
-    border-radius: 8px;
-}
-
-/* Class selector */
-.expense-list {
-    background-color: lightblue;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 700px;
-    border-radius: 8px;
-}
-
-/* Element selector */
+h1,
 h2 {
-    color: #333;
+    font-family: "Merriweather", serif;
 }
 
-/* Element selector */
+h1 {
+    color: var(--dark-green);
+    text-align: center;
+    margin: 10px 0;
+}
+
+body > p {
+    text-align: center;
+    color: var(--text);
+    margin-bottom: 30px;
+}
+
+
+/* ==============================
+   SECTION CARDS
+   ============================== */
+
+.expense-form,
+.expense-list,
+.budget-video,
+.how-to-use {
+    background-color: var(--white);
+    padding: 25px;
+    margin: 25px auto;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+
+/* ==============================
+   ADD EXPENSE FORM
+   ============================== */
+
+.expense-form {
+    max-width: 500px;
+}
+
+.expense-form h2,
+.expense-list h2,
+.budget-video h2 {
+    color: var(--dark-green);
+    margin-top: 0;
+}
+
 label {
     display: block;
     margin-top: 15px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
+
 #expense-name,
 #expense-amount,
 #expense-category {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
 }
 
-/* Expense table */
+input:focus,
+select:focus {
+    outline: 2px solid var(--primary);
+    border-color: var(--primary);
+}
+
+
+/* ==============================
+   BUTTON
+   ============================== */
+
+.expense-form button {
+    margin-top: 20px;
+    padding: 12px 22px;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.expense-form button:hover {
+    background-color: var(--dark-green);
+}
+
+
+/* ==============================
+   EXPENSE TABLE
+   ============================== */
+
+.expense-list {
+    max-width: 700px;
+}
+
 .expense-list table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 15px;
 }
 
-/* Table cells */
 .expense-list th,
 .expense-list td {
-    border: 1px solid #ccc;
-    padding: 10px;
+    border: 1px solid var(--border);
+    padding: 12px;
     text-align: left;
 }
 
-/* Table header */
 .expense-list th {
-    background-color: darkgreen;
-    color: white;
+    background-color: var(--dark-green);
+    color: var(--white);
+    font-weight: 600;
 }
 
-/* Alternating table rows */
 .expense-list tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: var(--light-green);
 }
-.expense-form button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: darkgreen;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+
+.expense-list tr:hover {
+    background-color: #BBF7D0;
 }
-/* Budget video */
+
+
+/* ==============================
+   BUDGETING VIDEO
+   ============================== */
+
 .budget-video {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
     max-width: 700px;
-    border-radius: 8px;
     text-align: center;
 }
 
 .budget-video iframe {
     max-width: 100%;
+    border-radius: 6px;
 }
-/* How to use section */
+
+
+/* ==============================
+   HOW TO USE
+   ============================== */
+
 .how-to-use {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
     max-width: 660px;
-    border-radius: 8px;
 }
 
 .how-to-use summary {
-    font-weight: bold;
-    cursor: pointer;
-}
-/* Table row hover effect */
-.expense-list tr:hover {
-    background-color: #d9f2d9;
-}
-/* How to use section */
-.how-to-use {
-    background-color: white;
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 660px;
-    border-radius: 8px;
-}
-
-.how-to-use summary {
-    font-weight: bold;
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    color: var(--dark-green);
     cursor: pointer;
 }
 
-/* Table row hover effect */
-.expense-list tr:hover {
-    background-color: #d9f2d9;
+.how-to-use p {
+    text-align: left;
+    line-height: 1.6;
+    color: var(--text);
 }
 
-/* Input focus effect */
-input:focus,
-select:focus {
-    outline: 2px solid darkgreen;
+
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .expense-form,
+    .expense-list,
+    .budget-video,
+    .how-to-use {
+        padding: 18px;
+    }
+
+    .expense-list {
+        overflow-x: auto;
+    }
+
+    .expense-list table {
+        min-width: 600px;
+    }
 }
+
