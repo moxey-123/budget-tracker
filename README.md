@@ -1,41 +1,48 @@
-
-# SpendWise Dashboard
+# SpendWise – Personal Finance Dashboard
 
 ## Project Overview
 
-SpendWise is a responsive personal finance dashboard built using HTML5 and CSS3.
+SpendWise is a responsive personal finance dashboard built using HTML5, CSS3, and JavaScript.
 
-The project demonstrates modern CSS layout techniques, including CSS Grid and Flexbox, to create a clean and organized financial dashboard.
+The application allows users to enter their monthly budget and expense amounts, calculates total expenses and remaining balance, and displays the results on the dashboard and browser console.
 
-The dashboard displays six financial categories with realistic static sample information.
+The project demonstrates practical JavaScript programming concepts alongside modern CSS layout techniques.
 
 ## Features
 
-- Responsive dashboard layout.
+- Responsive personal finance dashboard.
 - Sidebar navigation menu.
-- Dashboard header with welcome message and user profile.
-- Six financial category cards:
+- Budget input using JavaScript `prompt()`.
+- Collection of six expense categories:
   - Food
   - Transport
   - Rent
   - Entertainment
   - Savings
   - Utilities
-- CSS Grid for the overall page layout.
-- Flexbox for arranging dashboard components.
-- CSS custom properties for consistent colors.
-- Hover and keyboard focus animations.
+- JavaScript variables for storing budget and expense values.
+- Array for storing expense information.
+- Reusable functions for calculating expenses.
+- `for...of` loop for calculating total expenses.
+- Automatic calculation of total expenses.
+- Automatic calculation of remaining balance.
+- Financial results displayed on the webpage.
+- Clearly labelled budget report in the browser console.
 - Responsive mobile layout.
-- Dark theme using CSS media queries.
 
 ## Technologies Used
 
 - HTML5
 - CSS3
+- JavaScript
 - CSS Grid
 - CSS Flexbox
-- CSS Custom Properties
 - CSS Media Queries
+- JavaScript Variables
+- JavaScript Arrays
+- JavaScript Functions
+- JavaScript Loops
+- DOM Manipulation
 
 ## Project Structure
 
@@ -44,6 +51,7 @@ budget-tracker/
 │
 ├── index.html
 ├── style.css
+├── script.js
 └── README.md
 ```
 
@@ -51,43 +59,52 @@ budget-tracker/
 
 ### 1. index.html
 
-Contains the structure of the dashboard.
+Contains the structure of the SpendWise dashboard.
 
 It includes:
 
-- Sidebar and navigation links.
+- Sidebar navigation.
 - Dashboard header.
-- User profile.
-- Six financial category cards.
+- Budget overview section.
+- Monthly budget display.
+- Total expenses display.
+- Remaining balance display.
+- Six expense category cards.
 - Footer.
+- Links to the CSS and JavaScript files.
 
 ### 2. style.css
 
-Contains all the styling and layout rules.
+Contains the styling and layout rules.
 
 It uses:
 
-- CSS Grid to organize the dashboard and category cards.
-- Flexbox to arrange the sidebar, navigation, header and card content.
-- CSS variables to manage the application's color theme.
-- Media queries to make the dashboard responsive.
-- Hover and focus effects to improve user interaction.
-- Dark theme support through `prefers-color-scheme`.
+- CSS Grid for organizing dashboard cards.
+- Flexbox for arranging dashboard components.
+- CSS styling for the sidebar and navigation.
+- Responsive media queries.
+- Hover effects.
+- Consistent colors and spacing.
 
-### 3. README.md
+### 3. script.js
 
-Provides project documentation, including the project overview, features, technologies and file structure.
+Contains the application's JavaScript functionality.
 
-## Responsive Design
+It performs the following operations:
 
-The dashboard uses a CSS media query at 767px.
+1. Collects the monthly budget using `prompt()`.
+2. Collects six expense amounts.
+3. Stores the expense values in variables.
+4. Stores expenses in an array.
+5. Uses a reusable function to calculate total expenses.
+6. Uses another reusable function to calculate the remaining balance.
+7. Uses a `for...of` loop to calculate the total.
+8. Displays financial results in the browser console.
+9. Updates the dashboard using DOM manipulation.
 
-On smaller screens:
+### 4. README.md
 
-- The sidebar moves above the main content.
-- Navigation links wrap onto multiple lines.
-- The dashboard changes into a single-column layout.
-- Category cards stack vertically.
+Provides documentation about the project, its features, technologies, file structure, and instructions for running the application.
 
 ## How to Run the Project
 
@@ -97,18 +114,48 @@ On smaller screens:
    git clone YOUR_GITHUB_REPOSITORY_URL
    ```
 
-2. Open the project folder.
+2. Open the project folder:
+
+   ```bash
+   cd budget-tracker
+   ```
 
 3. Open `index.html` in your web browser.
 
+4. Enter your monthly budget when prompted.
+
+5. Enter the six expense amounts.
+
+6. View the calculated results on the dashboard.
+
+7. Open Developer Tools using `F12` and select the Console tab to view the detailed budget report.
+
+## Sample Calculation
+
+Example input:
+
+| Category | Amount |
+|---|---:|
+| Monthly Budget | $2,000 |
+| Food | $250 |
+| Transport | $150 |
+| Rent | $500 |
+| Entertainment | $80 |
+| Savings | $300 |
+| Utilities | $95 |
+
+Expected output:
+
+- Total Expenses: $1,375.00
+- Remaining Balance: $625.00
+
 ## Assignment Goal
 
-The goal of this project is to demonstrate practical knowledge of CSS Grid, Flexbox, CSS custom properties, responsive design and CSS micro-interactions.
+The goal of this project is to demonstrate practical knowledge of JavaScript variables, user input, arrays, reusable functions, loops, calculations, and DOM manipulation while maintaining a responsive dashboard design.
 
 ---
 
-**Project:** SpendWise Dashboard Shell
-
-**Author:** Salman
-
-**Course:** CSS Layout - Week 4
+**Project:** SpendWise Budget Tracker  
+**Author:** Salman  
+**Course:** Web Development – Week 6  
+**Previous Work:** CSS Layout – Week 4

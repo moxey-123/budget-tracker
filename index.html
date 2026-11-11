@@ -6,214 +6,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="SpendWise personal finance dashboard">
-
-    <title>SpendWise | Financial Dashboard</title>
+    <title>SpendWise | Budget Tracker</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- MAIN DASHBOARD -->
     <div class="dashboard">
 
-        <!-- SIDEBAR -->
+        <!-- Sidebar -->
         <aside class="sidebar">
+            <h2>SpendWise</h2>
+            <p class="sidebar-subtitle">Personal Finance</p>
 
-            <div class="logo">
-                <h2>SpendWise</h2>
-                <p>Personal Finance</p>
-            </div>
-
-            <!-- NAVIGATION -->
-            <nav class="navigation" aria-label="Main navigation">
-
-                <a href="#" class="active">
-                    Dashboard
-                </a>
-
-                <a href="#">
-                    Transactions
-                </a>
-
-                <a href="#">
-                    Budgets
-                </a>
-
-                <a href="#">
-                    Savings
-                </a>
-
-                <a href="#">
-                    Settings
-                </a>
-
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#overview">Budget Overview</a>
+                <a href="#expenses">Expenses</a>
             </nav>
-
-            <!-- SIDEBAR FOOTER -->
-            <div class="sidebar-footer">
-                <p>Manage your money wisely.</p>
-            </div>
-
         </aside>
 
-
-        <!-- MAIN CONTENT -->
+        <!-- Main Content -->
         <main class="main-content">
 
-            <!-- HEADER -->
             <header class="header">
-
-                <div class="welcome">
-                    <h1>Dashboard</h1>
-
-                    <p>
-                        Welcome back! Here's your financial overview.
-                    </p>
+                <div>
+                    <h1>My Budget Tracker</h1>
+                    <p>Manage your money and track your expenses.</p>
                 </div>
-
-                <!-- USER PROFILE -->
-                <div class="user-profile">
-
-                    <div class="user-avatar">
-                        S
-                    </div>
-
-                    <div class="user-info">
-                        <h3>Salman</h3>
-                        <p>Personal Account</p>
-                    </div>
-
-                </div>
-
             </header>
 
+            <!-- Budget Overview -->
+            <section id="overview">
+                <h2 class="section-title">Budget Overview</h2>
 
-            <!-- FINANCIAL OVERVIEW -->
-            <section class="categories">
+                <div class="summary-grid">
 
-                <div class="section-heading">
+                    <div class="summary-card">
+                        <p>Monthly Budget</p>
+                        <h3 id="budgetAmount">$0.00</h3>
+                    </div>
 
-                    <h2>Expense Categories</h2>
+                    <div class="summary-card">
+                        <p>Total Expenses</p>
+                        <h3 id="totalExpenses">$0.00</h3>
+                    </div>
 
-                    <p>
-                        Your monthly financial overview
-                    </p>
+                    <div class="summary-card">
+                        <p>Remaining Balance</p>
+                        <h3 id="remainingBalance">$0.00</h3>
+                    </div>
 
                 </div>
-
-
-                <!-- FOOD CARD -->
-                <article class="category-card" tabindex="0">
-
-                    <div class="card-info">
-                        <h3>Food</h3>
-                        <p>Monthly spending</p>
-                    </div>
-
-                    <div class="card-amount">
-                        <h2>$250.00</h2>
-                        <span>Groceries and meals</span>
-                    </div>
-
-                </article>
-
-
-                <!-- TRANSPORT CARD -->
-                <article class="category-card" tabindex="0">
-
-                    <div class="card-info">
-                        <h3>Transport</h3>
-                        <p>Monthly spending</p>
-                    </div>
-
-                    <div class="card-amount">
-                        <h2>$120.00</h2>
-                        <span>Travel and fuel</span>
-                    </div>
-
-                </article>
-
-
-                <!-- RENT CARD -->
-                <article class="category-card" tabindex="0">
-
-                    <div class="card-info">
-                        <h3>Rent</h3>
-                        <p>Monthly spending</p>
-                    </div>
-
-                    <div class="card-amount">
-                        <h2>$500.00</h2>
-                        <span>Monthly housing</span>
-                    </div>
-
-                </article>
-
-
-                <!-- ENTERTAINMENT CARD -->
-                <article class="category-card" tabindex="0">
-
-                    <div class="card-info">
-                        <h3>Entertainment</h3>
-                        <p>Monthly spending</p>
-                    </div>
-
-                    <div class="card-amount">
-                        <h2>$80.00</h2>
-                        <span>Movies and activities</span>
-                    </div>
-
-                </article>
-
-
-                <!-- SAVINGS CARD -->
-                <article class="category-card" tabindex="0">
-
-                    <div class="card-info">
-                        <h3>Savings</h3>
-                        <p>Monthly savings</p>
-                    </div>
-
-                    <div class="card-amount">
-                        <h2>$300.00</h2>
-                        <span>Money saved</span>
-                    </div>
-
-                </article>
-
-
-                <!-- UTILITIES CARD -->
-                <article class="category-card" tabindex="0">
-
-                    <div class="card-info">
-                        <h3>Utilities</h3>
-                        <p>Monthly spending</p>
-                    </div>
-
-                    <div class="card-amount">
-                        <h2>$95.00</h2>
-                        <span>Electricity and water</span>
-                    </div>
-
-                </article>
-
             </section>
 
+            <!-- Expense Categories -->
+            <section id="expenses">
+                <h2 class="section-title">Expense Categories</h2>
 
-            <!-- FOOTER -->
-            <footer class="footer">
+                <div class="expense-grid">
 
-                <p>
-                    &copy; 2026 SpendWise. All rights reserved.
-                </p>
+                    <div class="expense-card">
+                        <h3>Food</h3>
+                        <p id="foodAmount">$0.00</p>
+                    </div>
 
+                    <div class="expense-card">
+                        <h3>Transport</h3>
+                        <p id="transportAmount">$0.00</p>
+                    </div>
+
+                    <div class="expense-card">
+                        <h3>Rent</h3>
+                        <p id="rentAmount">$0.00</p>
+                    </div>
+
+                    <div class="expense-card">
+                        <h3>Entertainment</h3>
+                        <p id="entertainmentAmount">$0.00</p>
+                    </div>
+
+                    <div class="expense-card">
+                        <h3>Savings</h3>
+                        <p id="savingsAmount">$0.00</p>
+                    </div>
+
+                    <div class="expense-card">
+                        <h3>Utilities</h3>
+                        <p id="utilitiesAmount">$0.00</p>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer>
+                <p>SpendWise Personal Finance Dashboard</p>
             </footer>
 
         </main>
 
     </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
 
 </body>
 
