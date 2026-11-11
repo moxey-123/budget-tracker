@@ -1,133 +1,220 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>My Budget Tracker</title>
+    <meta name="description" content="SpendWise personal finance dashboard">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>SpendWise | Financial Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <img
-        src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png"
-        alt="Budget tracker icon"
-        width="80"
-    >
+    <!-- MAIN DASHBOARD -->
+    <div class="dashboard">
 
-    <h1>My Budget Tracker</h1>
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
 
-    <p>Track your income and expenses in one place.</p>
+            <div class="logo">
+                <h2>SpendWise</h2>
+                <p>Personal Finance</p>
+            </div>
 
+            <!-- NAVIGATION -->
+            <nav class="navigation" aria-label="Main navigation">
 
-    <section class="expense-form">
-        <h2>Add Expense</h2>
+                <a href="#" class="active">
+                    Dashboard
+                </a>
 
-        <form>
-            <label for="expense-name">Expense Name</label>
-            <input type="text" id="expense-name">
+                <a href="#">
+                    Transactions
+                </a>
 
-            <label for="expense-amount">Amount</label>
-            <input type="number" id="expense-amount">
+                <a href="#">
+                    Budgets
+                </a>
 
-            <label for="expense-category">Category</label>
-            <select id="expense-category">
-                <option value="Food">Food</option>
-                <option value="Transport">Transport</option>
-                <option value="Rent">Rent</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Other">Other</option>
-            </select>
+                <a href="#">
+                    Savings
+                </a>
 
-            <button type="button">Add Expense</button>
-        </form>
-    </section>
+                <a href="#">
+                    Settings
+                </a>
 
+            </nav>
 
-    <section class="expense-list">
-        <h2>Your Expenses</h2>
+            <!-- SIDEBAR FOOTER -->
+            <div class="sidebar-footer">
+                <p>Manage your money wisely.</p>
+            </div>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Amount</th>
-                    <th>Category</th>
-                    <th>Date</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <tr>
-                    <td>Lunch</td>
-                    <td>$15.00</td>
-                    <td>Food</td>
-                    <td>2026-09-25</td>
-                </tr>
-
-                <tr>
-                    <td>Bus Fare</td>
-                    <td>$5.00</td>
-                    <td>Transport</td>
-                    <td>2026-09-26</td>
-                </tr>
-
-                <tr>
-                    <td>House Rent</td>
-                    <td>$300.00</td>
-                    <td>Rent</td>
-                    <td>2026-09-27</td>
-                </tr>
-
-                <tr>
-                    <td>Movie</td>
-                    <td>$20.00</td>
-                    <td>Entertainment</td>
-                    <td>2026-09-28</td>
-                </tr>
-
-                <tr>
-                    <td>Groceries</td>
-                    <td>$45.00</td>
-                    <td>Food</td>
-                    <td>2026-09-29</td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
+        </aside>
 
 
-    <section class="budget-video">
-        <h2>Budgeting Tips</h2>
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
 
-        <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/7M2vK8l7f6M"
-            title="Budgeting Tips Video"
-            frameborder="0">
-        </iframe>
-    </section>
+            <!-- HEADER -->
+            <header class="header">
+
+                <div class="welcome">
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Welcome back! Here's your financial overview.
+                    </p>
+                </div>
+
+                <!-- USER PROFILE -->
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        S
+                    </div>
+
+                    <div class="user-info">
+                        <h3>Salman</h3>
+                        <p>Personal Account</p>
+                    </div>
+
+                </div>
+
+            </header>
 
 
-    <details class="how-to-use">
-        <summary>How to use this tracker</summary>
+            <!-- FINANCIAL OVERVIEW -->
+            <section class="categories">
 
-        <p>
-            Enter the name of your expense, enter the amount,
-            choose a category, and click the Add Expense button.
-            Your expenses are displayed in the table below.
-        </p>
-    </details>
+                <div class="section-heading">
+
+                    <h2>Expense Categories</h2>
+
+                    <p>
+                        Your monthly financial overview
+                    </p>
+
+                </div>
+
+
+                <!-- FOOD CARD -->
+                <article class="category-card" tabindex="0">
+
+                    <div class="card-info">
+                        <h3>Food</h3>
+                        <p>Monthly spending</p>
+                    </div>
+
+                    <div class="card-amount">
+                        <h2>$250.00</h2>
+                        <span>Groceries and meals</span>
+                    </div>
+
+                </article>
+
+
+                <!-- TRANSPORT CARD -->
+                <article class="category-card" tabindex="0">
+
+                    <div class="card-info">
+                        <h3>Transport</h3>
+                        <p>Monthly spending</p>
+                    </div>
+
+                    <div class="card-amount">
+                        <h2>$120.00</h2>
+                        <span>Travel and fuel</span>
+                    </div>
+
+                </article>
+
+
+                <!-- RENT CARD -->
+                <article class="category-card" tabindex="0">
+
+                    <div class="card-info">
+                        <h3>Rent</h3>
+                        <p>Monthly spending</p>
+                    </div>
+
+                    <div class="card-amount">
+                        <h2>$500.00</h2>
+                        <span>Monthly housing</span>
+                    </div>
+
+                </article>
+
+
+                <!-- ENTERTAINMENT CARD -->
+                <article class="category-card" tabindex="0">
+
+                    <div class="card-info">
+                        <h3>Entertainment</h3>
+                        <p>Monthly spending</p>
+                    </div>
+
+                    <div class="card-amount">
+                        <h2>$80.00</h2>
+                        <span>Movies and activities</span>
+                    </div>
+
+                </article>
+
+
+                <!-- SAVINGS CARD -->
+                <article class="category-card" tabindex="0">
+
+                    <div class="card-info">
+                        <h3>Savings</h3>
+                        <p>Monthly savings</p>
+                    </div>
+
+                    <div class="card-amount">
+                        <h2>$300.00</h2>
+                        <span>Money saved</span>
+                    </div>
+
+                </article>
+
+
+                <!-- UTILITIES CARD -->
+                <article class="category-card" tabindex="0">
+
+                    <div class="card-info">
+                        <h3>Utilities</h3>
+                        <p>Monthly spending</p>
+                    </div>
+
+                    <div class="card-amount">
+                        <h2>$95.00</h2>
+                        <span>Electricity and water</span>
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- FOOTER -->
+            <footer class="footer">
+
+                <p>
+                    &copy; 2026 SpendWise. All rights reserved.
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
 
 </body>
+
 </html>
-```

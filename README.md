@@ -1,131 +1,114 @@
-# My Budget Tracker
 
-## About the Project
+# SpendWise Dashboard
 
-My Budget Tracker is a simple HTML and CSS project that helps users view and organize their expenses. This project was originally built in Week 1 and improved in Week 2 and Week 3.
+## Project Overview
 
-In Week 3, I focused on improving the visual identity and user interface using CSS. I added a consistent color palette, Google Fonts, improved form and table styling, and applied the CSS Box Model to create clear and organized sections.
+SpendWise is a responsive personal finance dashboard built using HTML5 and CSS3.
+
+The project demonstrates modern CSS layout techniques, including CSS Grid and Flexbox, to create a clean and organized financial dashboard.
+
+The dashboard displays six financial categories with realistic static sample information.
 
 ## Features
 
-* Add Expense form
-* Expense category dropdown
-* Expense table with sample data
-* Budgeting tips video
-* Budget tracker image
-* Collapsible instructions section
-* Table hover effects
-* Input focus effects
-* Responsive table and video styling
-* Consistent color palette
-* Google Fonts typography
-* Styled form inputs and button
-* Styled table with alternating row colors
-* Rounded section cards
-* CSS Box Model spacing and borders
-
-## Files
-
-### index.html
-
-The `index.html` file contains the structure of the Budget Tracker.
-
-It includes:
-
-* Main heading and introduction
-* Add Expense form
-* Expense name and amount inputs
-* Category dropdown
-* Add Expense button
-* Expense table
-* Sample expense data
-* Budgeting tips video
-* How to use the tracker section
-* Google Fonts links
-
-### style.css
-
-The `style.css` file controls the visual appearance of the Budget Tracker.
-
-It includes:
-
-* Custom color variables
-* Page background styling
-* Heading and typography styling
-* Google Fonts
-* Form styling
-* Input and button styling
-* Table borders and spacing
-* Styled table header
-* Alternating table rows
-* Table hover effect
-* Input focus effects
-* Card styling
-* Padding and margins
-* Borders and border-radius
-* Responsive styling
-
-## Color Palette
-
-The project uses a simple green and neutral color palette.
-
-* Primary green: `#16A34A`
-* Dark green: `#166534`
-* Light green: `#DCFCE7`
-* Background: `#F4F7F6`
-* White: `#FFFFFF`
-* Text: `#1F2937`
-* Border: `#D1D5DB`
-
-The green colors are used for important interface elements such as headings, buttons, and table headers.
-
-## Typography
-
-Google Fonts are used to improve readability and visual hierarchy.
-
-* **Merriweather** is used for headings.
-* **Open Sans** is used for body text, labels, form elements, buttons, and table content.
-
-## CSS Box Model
-
-The CSS Box Model was used throughout the project to organize the layout.
-
-### Margin
-
-Margin is used to create space between sections and separate the different cards.
-
-### Padding
-
-Padding is used to create space inside the form, table section, video section, and instructions section.
-
-### Border
-
-Borders are used around cards, form inputs, and table cells to create clear visual structure.
-
-### Border Radius
-
-Border radius is used to give the cards, inputs, button, and video a softer and more modern appearance.
+- Responsive dashboard layout.
+- Sidebar navigation menu.
+- Dashboard header with welcome message and user profile.
+- Six financial category cards:
+  - Food
+  - Transport
+  - Rent
+  - Entertainment
+  - Savings
+  - Utilities
+- CSS Grid for the overall page layout.
+- Flexbox for arranging dashboard components.
+- CSS custom properties for consistent colors.
+- Hover and keyboard focus animations.
+- Responsive mobile layout.
+- Dark theme using CSS media queries.
 
 ## Technologies Used
 
-* HTML5
-* CSS3
-* Google Fonts
+- HTML5
+- CSS3
+- CSS Grid
+- CSS Flexbox
+- CSS Custom Properties
+- CSS Media Queries
 
-## What I Learned
+## Project Structure
 
-In Week 3, I learned how to:
+```text
+budget-tracker/
+│
+├── index.html
+├── style.css
+└── README.md
+```
 
-* Create and use CSS variables
-* Choose and apply a consistent color palette
-* Load and use Google Fonts
-* Create typography hierarchy
-* Style forms and form controls
-* Style HTML tables
-* Use alternating table row colors
-* Use hover and focus effects
-* Apply padding, margin, borders, and border-radius
-* Use the CSS Box Model to organize page sections
-* Create visually distinct card sections
-* Improve responsive styling with media queries
+## Explanation of Project Files
 
+### 1. index.html
+
+Contains the structure of the dashboard.
+
+It includes:
+
+- Sidebar and navigation links.
+- Dashboard header.
+- User profile.
+- Six financial category cards.
+- Footer.
+
+### 2. style.css
+
+Contains all the styling and layout rules.
+
+It uses:
+
+- CSS Grid to organize the dashboard and category cards.
+- Flexbox to arrange the sidebar, navigation, header and card content.
+- CSS variables to manage the application's color theme.
+- Media queries to make the dashboard responsive.
+- Hover and focus effects to improve user interaction.
+- Dark theme support through `prefers-color-scheme`.
+
+### 3. README.md
+
+Provides project documentation, including the project overview, features, technologies and file structure.
+
+## Responsive Design
+
+The dashboard uses a CSS media query at 767px.
+
+On smaller screens:
+
+- The sidebar moves above the main content.
+- Navigation links wrap onto multiple lines.
+- The dashboard changes into a single-column layout.
+- Category cards stack vertically.
+
+## How to Run the Project
+
+1. Clone the repository:
+
+   ```bash
+   git clone YOUR_GITHUB_REPOSITORY_URL
+   ```
+
+2. Open the project folder.
+
+3. Open `index.html` in your web browser.
+
+## Assignment Goal
+
+The goal of this project is to demonstrate practical knowledge of CSS Grid, Flexbox, CSS custom properties, responsive design and CSS micro-interactions.
+
+---
+
+**Project:** SpendWise Dashboard Shell
+
+**Author:** Salman
+
+**Course:** CSS Layout - Week 4
