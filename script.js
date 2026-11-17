@@ -1,133 +1,275 @@
 
-// ==================================
-// SPENDWISE BUDGET TRACKER
-// ==================================
+// ======================================
+// SpendWise - Interactive Budget Tracker
+// ======================================
 
+// 1. STORE DATA USING VARIABLES AND ARRAYS
 
-// STEP 1: COLLECT BUDGET INFORMATION
+let monthlyBudget = 0;
+let expenses = [];
+let nextExpenseId = 1;
 
-let monthlyBudget = Number(
-    prompt("Enter your monthly budget:")
-);
+// Get HTML elements
+const budgetInput = document.getElementById("monthlyBudget");
+const setBudgetBtn = document.getElementById("setBudgetBtn");
 
+const budgetAmount = document.getElementById("budgetAmount");
+const totalExpenses = document.getElementById("totalExpenses");
+const remainingBalance = document.getElementById("remainingBalance");
+const budgetMessage = document.getElementById("budgetMessage");
 
-// STEP 2: COLLECT EXPENSE INFORMATION
+const expenseForm = document.getElementById("expenseForm");
+const expenseList = document.getElementById("expenseList");
 
-let food = Number(prompt("Enter your food expenses:"));
+// Expense category elements
+const categoryElements = {
+    Food: document.getElementById("foodAmount"),
+    Transport: document.getElementById("transportAmount"),
+    Rent: document.getElementById("rentAmount"),
+    Entertainment: document.getElementById("entertainmentAmount"),
+    Savings: document.getElementById("savingsAmount"),
+    Utilities: document.getElementById("utilitiesAmount")
+};
 
-let transport = Number(prompt("Enter your transport expenses:"));
+// Format money
+function formatCurrency(amount) {
+    return new Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD"
+    }).format(amount);
+}
 
-let rent = Number(prompt("Enter your rent expenses:"));
+// 2. CALCULATE TOTAL EXPENSES USING A LOOP
 
-let entertainment = Number(prompt("Enter your entertainment expenses:"));
-
-let savings = Number(prompt("Enter your savings:"));
-
-let utilities = Number(prompt("Enter your utilities expenses:"));
-
-
-// STEP 3: STORE EXPENSES IN AN ARRAY
-
-let expenses = [
-    food,
-    transport,
-    rent,
-    entertainment,
-    savings,
-    utilities
-];
-
-
-// STEP 4: CREATE A REUSABLE FUNCTION
-// This function calculates total expenses.
-
-function calculateTotalExpenses(expenseList) {
-
+function calculateTotalExpenses() {
     let total = 0;
 
-    for (let expense of expenseList) {
-        total += expense;
+    for (let expense of expenses) {
+        total += expense.amount;
     }
 
     return total;
 }
 
+// 3. UPDATE THE DASHBOARD USING DOM MANIPULATION
 
-// STEP 5: CREATE A REUSABLE FUNCTION
-// This function calculates the remaining balance.
+function updateDashboard() {
 
-function calculateRemainingBalance(budget, totalExpenses) {
+    let total = calculateTotalExpenses();
+    let remaining = monthlyBudget - total;
 
-    return budget - totalExpenses;
+    budgetAmount.textContent = formatCurrency(monthlyBudget);
+    totalExpenses.textContent = formatCurrency(total);
+    remainingBalance.textContent = formatCurrency(remaining);
 
+    // Update expense categories
+    let categoryTotals = {
+        Food: 0,
+        Transport: 0,
+        Rent: 0,
+        Entertainment: 0,
+        Savings: 0,
+        Utilities: 0
+    };
+
+    // Process expense records using a loop
+    for (let expense of expenses) {
+        if (categoryTotals[expense.category] !== undefined) {
+            categoryTotals[expense.category] += expense.amount;
+        }
+    }
+
+    // Display category totals
+    for (let category in categoryTotals) {
+        categoryElements[category].textContent =
+            formatCurrency(categoryTotals[category]);
+    }
+
+    // 4. CONDITIONAL STATEMENTS FOR BUDGET FEEDBACK
+
+    budgetMessage.className = "budget-message";
+
+    if (monthlyBudget <= 0) {
+
+        budgetMessage.textContent =
+            "Please set your monthly budget to get started.";
+
+    } else if (remaining < 0) {
+
+        budgetMessage.textContent =
+            "Warning! You have exceeded your monthly budget.";
+
+        budgetMessage.classList.add("danger");
+
+    } else if (remaining === 0) {
+
+        budgetMessage.textContent =
+            "You have used your entire monthly budget.";
+
+        budgetMessage.classList.add("warning");
+
+    } else if (remaining <= monthlyBudget * 0.2) {
+
+        budgetMessage.textContent =
+            "Be careful! You are running low on your budget.";
+
+        budgetMessage.classList.add("warning");
+
+    } else {
+
+        budgetMessage.textContent =
+            "Great job! Your spending is within your budget.";
+    }
 }
 
+// 5. DISPLAY EXPENSE RECORDS ON THE WEBPAGE
 
-// STEP 6: CALL THE FUNCTIONS
+function displayExpenses() {
 
-let totalExpenses = calculateTotalExpenses(expenses);
+    // Clear previous records
+    expenseList.replaceChildren();
 
-let remainingBalance = calculateRemainingBalance(
-    monthlyBudget,
-    totalExpenses
-);
+    // Check whether expenses exist
+    if (expenses.length === 0) {
 
+        const emptyMessage = document.createElement("p");
+        emptyMessage.className = "empty-message";
+        emptyMessage.textContent = "No expenses added yet.";
 
-// STEP 7: DISPLAY RESULTS IN THE CONSOLE
+        expenseList.appendChild(emptyMessage);
+        return;
+    }
 
-console.log("========== SPENDWISE BUDGET REPORT ==========");
+    // Loop through all expense records
+    for (let expense of expenses) {
 
-console.log("Monthly Budget: $" + monthlyBudget.toFixed(2));
+        const expenseItem = document.createElement("div");
+        expenseItem.className = "expense-item";
 
-console.log("Food Expenses: $" + food.toFixed(2));
+        const details = document.createElement("div");
+        details.className = "expense-details";
 
-console.log("Transport Expenses: $" + transport.toFixed(2));
+        const name = document.createElement("h3");
+        name.textContent = expense.name;
 
-console.log("Rent Expenses: $" + rent.toFixed(2));
+        const category = document.createElement("p");
+        category.textContent =
+            expense.category + " | " + expense.date;
 
-console.log("Entertainment Expenses: $" + entertainment.toFixed(2));
+        details.appendChild(name);
+        details.appendChild(category);
 
-console.log("Savings: $" + savings.toFixed(2));
+        const actions = document.createElement("div");
+        actions.className = "expense-actions";
 
-console.log("Utilities Expenses: $" + utilities.toFixed(2));
+        const amount = document.createElement("strong");
+        amount.textContent = formatCurrency(expense.amount);
 
-console.log("--------------------------------------------");
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.textContent = "Delete";
+        deleteButton.className = "delete-btn";
+        deleteButton.dataset.id = expense.id;
 
-console.log("Total Expenses: $" + totalExpenses.toFixed(2));
+        actions.appendChild(amount);
+        actions.appendChild(deleteButton);
 
-console.log("Remaining Balance: $" + remainingBalance.toFixed(2));
+        expenseItem.appendChild(details);
+        expenseItem.appendChild(actions);
 
-console.log("============================================");
+        expenseList.appendChild(expenseItem);
+    }
+}
 
+// 6. HANDLE MONTHLY BUDGET BUTTON USING EVENTS
 
-// STEP 8: DISPLAY RESULTS ON THE WEBPAGE
+setBudgetBtn.addEventListener("click", function () {
 
-document.getElementById("budgetAmount").textContent =
-    "$" + monthlyBudget.toFixed(2);
+    const newBudget = Number(budgetInput.value);
 
-document.getElementById("totalExpenses").textContent =
-    "$" + totalExpenses.toFixed(2);
+    if (budgetInput.value.trim() === "" ||
+        !Number.isFinite(newBudget) ||
+        newBudget <= 0) {
 
-document.getElementById("remainingBalance").textContent =
-    "$" + remainingBalance.toFixed(2);
+        alert("Please enter a valid budget greater than zero.");
+        return;
+    }
 
+    monthlyBudget = newBudget;
 
-// Display individual expenses
+    updateDashboard();
 
-document.getElementById("foodAmount").textContent =
-    "$" + food.toFixed(2);
+    budgetInput.value = "";
+});
 
-document.getElementById("transportAmount").textContent =
-    "$" + transport.toFixed(2);
+// 7. HANDLE EXPENSE FORM SUBMISSION
 
-document.getElementById("rentAmount").textContent =
-    "$" + rent.toFixed(2);
+expenseForm.addEventListener("submit", function (event) {
 
-document.getElementById("entertainmentAmount").textContent =
-    "$" + entertainment.toFixed(2);
+    // Prevent page refresh
+    event.preventDefault();
 
-document.getElementById("savingsAmount").textContent =
-    "$" + savings.toFixed(2);
+    // Get user input
+    const expenseName =
+        document.getElementById("expenseName").value.trim();
 
-document.getElementById("utilitiesAmount").textContent =
-    "$" + utilities.toFixed(2);
+    const expenseAmount =
+        Number(document.getElementById("expenseAmount").value);
+
+    const expenseCategory =
+        document.getElementById("expenseCategory").value;
+
+    // Validate user input
+    if (
+        expenseName === "" ||
+        !Number.isFinite(expenseAmount) ||
+        expenseAmount <= 0 ||
+        !Object.hasOwn(categoryElements, expenseCategory)
+    ) {
+        alert("Please enter valid expense information.");
+        return;
+    }
+
+    // Create a new expense record
+    const newExpense = {
+        id: nextExpenseId++,
+        name: expenseName,
+        amount: expenseAmount,
+        category: expenseCategory,
+        date: new Date().toLocaleDateString()
+    };
+
+    // Store expense inside the array
+    expenses.push(newExpense);
+
+    // Update webpage
+    displayExpenses();
+    updateDashboard();
+
+    // Clear form fields
+    expenseForm.reset();
+});
+
+// 8. HANDLE DELETE BUTTON CLICKS
+
+expenseList.addEventListener("click", function (event) {
+
+    if (event.target.classList.contains("delete-btn")) {
+
+        const expenseId = Number(event.target.dataset.id);
+
+        // Remove selected expense from array
+        expenses = expenses.filter(function (expense) {
+            return expense.id !== expenseId;
+        });
+
+        // Refresh dashboard and expense records
+        displayExpenses();
+        updateDashboard();
+    }
+});
+
+// 9. INITIALIZE DASHBOARD
+
+displayExpenses();
+updateDashboard();

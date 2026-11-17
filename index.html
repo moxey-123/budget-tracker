@@ -1,10 +1,11 @@
-
+```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SpendWise personal finance dashboard">
 
     <title>SpendWise | Budget Tracker</title>
 
@@ -23,6 +24,7 @@
             <nav>
                 <a href="#" class="active">Dashboard</a>
                 <a href="#overview">Budget Overview</a>
+                <a href="#add-expense">Add Expense</a>
                 <a href="#expenses">Expenses</a>
             </nav>
         </aside>
@@ -40,6 +42,13 @@
             <!-- Budget Overview -->
             <section id="overview">
                 <h2 class="section-title">Budget Overview</h2>
+
+                <div class="budget-setting">
+                    <label for="monthlyBudget">Set Monthly Budget ($)</label>
+                    <input type="number" id="monthlyBudget"
+                        placeholder="Enter your monthly budget" min="0" step="0.01">
+                    <button type="button" id="setBudgetBtn">Set Budget</button>
+                </div>
 
                 <div class="summary-grid">
 
@@ -59,6 +68,47 @@
                     </div>
 
                 </div>
+
+                <p id="budgetMessage" class="budget-message">
+                    Set your budget to get started.
+                </p>
+            </section>
+
+            <!-- Add Expense Form -->
+            <section id="add-expense">
+                <h2 class="section-title">Add New Expense</h2>
+
+                <form id="expenseForm">
+
+                    <div class="form-group">
+                        <label for="expenseName">Expense Name</label>
+                        <input type="text" id="expenseName"
+                            placeholder="e.g. Lunch" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expenseAmount">Amount ($)</label>
+                        <input type="number" id="expenseAmount"
+                            placeholder="Enter amount" min="0.01"
+                            step="0.01" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expenseCategory">Category</label>
+                        <select id="expenseCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Food">Food</option>
+                            <option value="Transport">Transport</option>
+                            <option value="Rent">Rent</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="Savings">Savings</option>
+                            <option value="Utilities">Utilities</option>
+                        </select>
+                    </div>
+
+                    <button type="submit">Add Expense</button>
+
+                </form>
             </section>
 
             <!-- Expense Categories -->
@@ -100,6 +150,15 @@
                 </div>
             </section>
 
+            <!-- Expense Records -->
+            <section id="expense-records">
+                <h2 class="section-title">Expense Records</h2>
+
+                <div id="expenseList" class="expense-list">
+                    <p class="empty-message">No expenses added yet.</p>
+                </div>
+            </section>
+
             <footer>
                 <p>SpendWise Personal Finance Dashboard</p>
             </footer>
@@ -108,9 +167,9 @@
 
     </div>
 
-    <!-- JavaScript -->
     <script src="script.js"></script>
 
 </body>
 
 </html>
+```
